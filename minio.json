@@ -1,0 +1,7 @@
+{
+  "url": "http://localhost:9001/api/v1/service-account-credentials",
+  "accessKey": "aFQk1oQuFQm6vixPIyZR",
+  "secretKey": "WA1IYZ0mHhs7861znkTC7XQ2zhV8uBfotP5sZFdr",
+  "api": "s3v4",
+  "path": "auto"
+}
