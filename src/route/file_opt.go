@@ -31,4 +31,19 @@ func InitFileOperateRoutes(r *gin.Engine) {
 
 	})
 
+	r.GET(path+"/get-url", func(c *gin.Context) {
+		url := minio_service.GetDownloadUrl("test1", "Anything/file.go")
+		c.JSON(http.StatusOK, url.String())
+	})
+
+	r.POST(path+"/delete", func(c *gin.Context) {
+		minio_service.Delete("test1", "Anything/zelda/.ff")
+		c.JSON(http.StatusOK, "ok")
+
+	})
+	r.POST(path+"/create-folder", func(c *gin.Context) {
+		info := minio_service.NewFolder("test1", "Anything/zelda")
+		c.JSON(http.StatusOK, info)
+	})
+
 }

@@ -12,3 +12,6 @@ var config = file_util.MinIOConfig{
 
 // minio singleton客户端
 var minioClient = file_util.GetClient(config).MinIO
+
+// 创建文件夹时的隐藏文件
+var folderFileName = ".ff"

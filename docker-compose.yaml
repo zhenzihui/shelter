@@ -2,9 +2,9 @@ version: "0.0.1"
 
 services:
   minio:
-    image: quay.io/minio_service/minio_service
+    image: quay.io/minio/minio
     volumes:
-      - /docker/minio_service/data:/data
+      - /docker/minio/data:/data
     command: server /data --console-address ":9001"
     environment:
       - MINIO_ROOT_USER=minioadmin
