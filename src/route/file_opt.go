@@ -5,12 +5,14 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"projectsuika.com/shelter/src/middleware/auth"
 	"projectsuika.com/shelter/src/service/minio_service"
 )
 
 var path = "/files"
 
 func InitFileOperateRoutes(r *gin.Engine) {
+	r.Use(auth.Authenticate())
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{
 			"message": "pong",

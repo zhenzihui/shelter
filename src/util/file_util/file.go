@@ -4,6 +4,7 @@ import (
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
 	"log"
+	"os"
 	"sync"
 )
 
@@ -21,6 +22,7 @@ type Client struct {
 
 var lock = &sync.Mutex{}
 var singleClient *Client
+var UserHome, _ = os.UserHomeDir()
 
 // GetClient 获取单例client
 func GetClient(config MinIOConfig) *Client {
@@ -53,4 +55,11 @@ func GetMinIOClient(config MinIOConfig) *minio.Client {
 		return nil
 	}
 	return client
+}
+func FileExists(filename string) bool {
+	info, err := os.Stat(filename)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return !info.IsDir()
 }

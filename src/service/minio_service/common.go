@@ -1,6 +1,6 @@
 package minio_service
 
-import "projectsuika.com/shelter/src/struct/file_util"
+import "projectsuika.com/shelter/src/util/file_util"
 
 // minio 配置在这里 TODO:从文件读取配置
 var config = file_util.MinIOConfig{
